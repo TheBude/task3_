@@ -1,12 +1,12 @@
-﻿//juft toq aniqlovchi
-Console.Write("Butun Son kiriting: ");
-int num = Convert.ToInt32(Console.ReadLine());
+﻿//Bo'luvchialri sonini aniqlash
+Console.Write("Iltimos, sonni kiriting: ");
+int son = int.Parse(Console.ReadLine());
 
-if  (num % 2 == 0)
+Console.Write("Bo'luvchilari: ");
+for (int i = 2; i <= 10; i++)
 {
-    Console.WriteLine("Kirtilgan son juf son!");
-}
-else
-{
-    Console.WriteLine("Kiritlgan son toq son!");
+    if (son % i == 0)
+    {
+        Console.Write(i + (i < 10 ? ", " : ""));
+    }
 }
