@@ -1,12 +1,20 @@
-﻿//Bo'luvchialri sonini aniqlash
-Console.Write("Iltimos, sonni kiriting: ");
-int son = int.Parse(Console.ReadLine());
+﻿//Darajaga oshuruvchi dastur
+Console.Write("Sonni kiriting: ");
+int son = Convert.ToInt32(Console.ReadLine());
+Console.Write("Darajani kiriting: ");
+int daraja = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("Bo'luvchilari: ");
-for (int i = 2; i <= 10; i++)
+if (daraja < 0)
 {
-    if (son % i == 0)
+    Console.WriteLine("Daraja Noldon katta Bo'lishi zarur");
+}
+else
+{
+    int natija = 1;
+    for (int i = 0; i < daraja; i++)
     {
-        Console.Write(i + (i < 10 ? ", " : ""));
+        natija *= son;
     }
+
+    Console.WriteLine($"Natija: {natija}");
 }
