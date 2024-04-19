@@ -1,34 +1,24 @@
 ﻿Console.Write("Son kiriting: ");
-string input = Console.ReadLine();
-if (int.TryParse(input, out int number))
+int input = int.Parse(Console.ReadLine());
+int count = 0;
+
+for (int i = 1; i <= input; i++)
 {
-    if (IsArmstrong(number))
+    if (input % i == 0) // Agar son i ga bo'linsa
     {
-        Console.WriteLine($"{number} Armstrong son");
-    }
-    else
-    {
-        Console.WriteLine($"{number} Armstrong son emas");
+        if (IsGoodDivider(i, input)) // Agar bu yaxshi bo'luvchi bo'lsa
+        {
+            count++;
+            Console.WriteLine($"Yaxshi bo'luvchi: {i}");
+        }
     }
 }
-else
-{
-    Console.WriteLine("Notog'ri kiritilgan son!");
-}
+
+Console.WriteLine($"Jami {count} ta yaxshi bo'luvchi.");
     
 
-    static bool IsArmstrong(int number)
+    static bool IsGoodDivider(int div, int number)
 {
-    int originalNumber = number;
-    int sum = 0;
-    int digits = number.ToString().Length;
-
-    while (number > 0)
-    {
-        int digit = number % 10;
-        sum += (int)Math.Pow(digit, digits);
-        number /= 10;
-    }
-
-    return originalNumber == sum;
+    // Bu funksiya keyingi son bilan bo'linishini tekshiradi
+    return number % (div + 1) != 0;
 }
