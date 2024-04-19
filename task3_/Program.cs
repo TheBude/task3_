@@ -1,12 +1,15 @@
-﻿//juft toq aniqlovchi
-Console.Write("Butun Son kiriting: ");
-int num = Convert.ToInt32(Console.ReadLine());
+﻿//Xarajatlarni hisoblash
+Console.WriteLine("Harajatlarni Hisoblavchi dastur!\nHAr bir harajatni vergul bilan ajratib yozing");
 
-if  (num % 2 == 0)
+Console.Write("Xarajatlar Sonnini kirtiting: ");
+int massiv = int.Parse(Console.ReadLine());
+int[] count = new int[massiv];
+int num = 0;
+
+for (int i = 0; i < massiv; i++)
 {
-    Console.WriteLine("Kirtilgan son juf son!");
+    Console.Write($"{i + 1} - Xarajatni kiriting: ");
+    count[i] = int.Parse(Console.ReadLine());
+    num += count[i];
 }
-else
-{
-    Console.WriteLine("Kiritlgan son toq son!");
-}
+Console.WriteLine(num + " So'm Xarajat bo'lgan");
