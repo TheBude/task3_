@@ -1,15 +1,34 @@
-﻿//Xarajatlarni hisoblash
-Console.WriteLine("Harajatlarni Hisoblavchi dastur!\nHAr bir harajatni vergul bilan ajratib yozing");
-
-Console.Write("Xarajatlar Sonnini kirtiting: ");
-int massiv = int.Parse(Console.ReadLine());
-int[] count = new int[massiv];
-int num = 0;
-
-for (int i = 0; i < massiv; i++)
+﻿Console.Write("Son kiriting: ");
+string input = Console.ReadLine();
+if (int.TryParse(input, out int number))
 {
-    Console.Write($"{i + 1} - Xarajatni kiriting: ");
-    count[i] = int.Parse(Console.ReadLine());
-    num += count[i];
+    if (IsArmstrong(number))
+    {
+        Console.WriteLine($"{number} Armstrong son");
+    }
+    else
+    {
+        Console.WriteLine($"{number} Armstrong son emas");
+    }
 }
-Console.WriteLine(num + " So'm Xarajat bo'lgan");
+else
+{
+    Console.WriteLine("Notog'ri kiritilgan son!");
+}
+    
+
+    static bool IsArmstrong(int number)
+{
+    int originalNumber = number;
+    int sum = 0;
+    int digits = number.ToString().Length;
+
+    while (number > 0)
+    {
+        int digit = number % 10;
+        sum += (int)Math.Pow(digit, digits);
+        number /= 10;
+    }
+
+    return originalNumber == sum;
+}
